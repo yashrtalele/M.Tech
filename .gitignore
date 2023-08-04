@@ -1,0 +1,8 @@
+#ignore a.out
+**/a.out
+
+#ignore input.txt
+**/input.txt
+
+#ignore output.txt
+**/output.txt
