@@ -44,7 +44,9 @@ displayRecord() {
 }
 
 sortRecords() {
-	sort -t',' -k2 -n employee_records.txt
+	sort -t',' -k2 -n employee_records.txt >>temp.txt
+	rm employee_records.txt
+	mv temp.txt employee_records.txt
 }
 
 listRecords() {
