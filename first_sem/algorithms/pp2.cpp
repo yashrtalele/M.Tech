@@ -11,7 +11,7 @@ int largestDense(string s) {
   for(int i=0; i<s.length(); i++) {
     if(s[i]=='1') sum++;
     else sum--;
-    if(sum > 0)
+    if(sum > 0) 
       k=i+1;
     else if(sum <= 0) {
       if(prevSum.find(sum-1) != prevSum.end()) {
@@ -19,8 +19,9 @@ int largestDense(string s) {
         k=max(curr_len, k);
       }
     }
-    if(prevSum.find(sum) == prevSum.end())
+    if(prevSum.find(sum) == prevSum.end()) {
       prevSum[sum]=i;
+    }
   }
   return k;
 }
