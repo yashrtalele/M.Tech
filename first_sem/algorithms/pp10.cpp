@@ -1,27 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> greaterThan(vector<int>& arr, int n) {
-    int max=INT_MIN;
-    vector<int> res(arr.size());
-    stack<int> st;
-    st.push(arr[0]);
-    for(int i=1; i<n; i++) {
-        if(st.empty()) {
-            st.push(arr[i]);
-            continue;
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+vector<long long> greaterThan(vector<int>& arr, int n) {
+    vector<long long> v(n, -1);
+    long long mx=arr[n-1];
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i+1] > arr[i])
+            v[i]=arr[i+1];
+        else {
+            if(v[i+1] > arr[i])
+                v[i] = v[i+1];
+            else if(mx > arr[i]) {
+                int k=i+1;
+                while(arr[k] <= arr[i])
+                    k++;
+                v[i]=arr[k];
+            }
+            else
+                v[i]=-1;
         }
-        while(!st.empty() and arr[i] > st.top()) {
-            res[st.top()]=arr[i];
-            st.pop();
-        }
-        st.push(arr[i]);
+        mx=max(mx, arr[i]);
     }
-    while(!st.empty()) {
-        res[st.top()]=-1;
-        st.pop();
-    }
-    return res;
+    return v;
 }
 
 int main() {
@@ -35,7 +39,8 @@ int main() {
     cin >> n;
     vector<int> arr(n);
     for(int i=0; i<n; i++) cin >> arr[i];
-    vector<int> res=greaterThan(arr, n);
+    greaterThan(arr, n);
+    vector<long long> res=greaterThan(arr, n);
     for(int i=0; i<res.size(); i++) cout << res[i] << " ";
     cout << endl;
     return 0;
