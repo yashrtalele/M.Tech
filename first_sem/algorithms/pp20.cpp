@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maximumSumSubarray(vector<int> arr, int n, int k) {
+int maximumSumSubarrayAtleastK(vector<int> arr, int n, int k) {
     int csum=arr[0], length=0, temp=0, exactK=0, ans=INT_MIN;
     int* maxSum=new int[n];
     int* lenSum=new int[n];
@@ -52,6 +52,6 @@ int main() {
     vector<int> arr(n);
     for(int i=0; i<n; i++) cin >> arr[i];
     cin >> k;
-    cout << maximumSumSubarray(arr, n, k);
+    cout << maximumSumSubarrayAtleastK(arr, n, k);
     return 0;
 }
