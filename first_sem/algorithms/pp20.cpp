@@ -1,21 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maximumSumSubarray(vector<int> arr, int n) {
-    int sum = 0, smax = INT_MIN, start=0, end=0, s=0;
-    for (int i=0; i<arr.size(); i++) {
-        sum += arr[i];
-        if(sum>=smax) {
-            smax=sum;
-            start=s;
-            end=i;
+int maximumSumSubarray(vector<int> arr, int n, int k) {
+    int csum=arr[0], length=0, temp=0, exactK=0, ans=INT_MIN;
+    int* maxSum=new int[n];
+    int* lenSum=new int[n];
+    maxSum[0]=csum;
+    for(int i=1; i<n; i++) {
+        if(csum > 0) {
+            csum+=arr[i];
+            temp++;
         }
-        if (sum < 0) {
-            sum=0;
-            s=i+1;
+        else {
+            csum=arr[i];
+            lenSum[i]=temp;
+            temp=0;
+        }
+        maxSum[i]=csum;
+    }
+    for(int i=0; i<k; i++) {
+        exactK+=arr[i];
+    }
+    if(exactK > ans)
+        ans=exactK;
+    for(int i=k; i<n; i++) {
+        exactK = exactK+arr[i]-arr[i-k];
+        if(exactK > ans) {
+            ans=exactK;
+            if(length < k) {
+                length=k;
+            }
+        }
+        int moreThanK = maxSum[i-k] + exactK;
+        if(moreThanK > ans) {
+            ans=moreThanK;
+            length=lenSum[i-k]+k;
         }
     }
-    return end-start+1;
+    return length;
 }
 
 int main() {
@@ -29,6 +51,7 @@ int main() {
     cin >> n;
     vector<int> arr(n);
     for(int i=0; i<n; i++) cin >> arr[i];
-    cout << maximumSumSubarray(arr, n);
+    cin >> k;
+    cout << maximumSumSubarray(arr, n, k);
     return 0;
 }

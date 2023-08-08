@@ -18,6 +18,19 @@ int maximumSumSubarray(vector<int> arr, int n) {
     return end-start+1;
 }
 
+int maximumSumSubarrayKadane(vector<int> arr, int n) {
+    int csum=arr[0], osum=arr[0];
+    for(int i=1; i<n; i++) {
+        if(csum >= 0)
+            csum+=arr[i];
+        else
+            csum=arr[i];
+        if(csum>osum)
+            osum=csum;
+    }
+    return osum;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
