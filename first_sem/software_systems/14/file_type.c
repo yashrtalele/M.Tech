@@ -3,6 +3,16 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 
+/*
+* create files of various types using following:
+* sudo mknod blk_file b 1 2
+* sudo mknod c_file c 1 2
+* mknod fifo_file p
+* vim r_file => :wq
+* mkdir dir
+* ln -s file_type.c symlink
+*/
+
 void main() {
   struct stat stats;
   char input[100];
