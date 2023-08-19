@@ -8,13 +8,13 @@
 void main(int argc, char* argv[]) {
   int file1=open(argv[1], O_RDONLY);
   if(file1 < 0) {
-    printf("Error ", errno);
+    printf("Error %d", errno);
     perror("Program");
     exit(0);
   }
   int file2=open(argv[2], O_WRONLY | O_EXCL | O_CREAT, 0666);
   if(file2 < 0) {
-    printf("Error ", errno);
+    printf("Error %d", errno);
     perror("Program");
     exit(0);
   }
