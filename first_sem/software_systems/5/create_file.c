@@ -11,8 +11,7 @@ void main() {
       snprintf(buffer, sizeof(char) * 32, "file%i.txt", k);
       file = fopen(buffer, "wb");
       fclose(file);
+      k++;
     }
-    if(k==2147483647) k=5;
-    k++;
   }
 }
