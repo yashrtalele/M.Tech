@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<fcntl.h>
 #include<stdlib.h>
+#include<unistd.h>
 #include<sys/types.h>
 #include<sys/file.h>
 
@@ -15,7 +16,7 @@ void main() {
   lock.l_whence=SEEK_SET;
   lock.l_start=0;
   lock.l_len=0;
-  int rfcntl=fcntl(fd, F_SETLK, &lock);
+  int rfcntl=fcntl(fd, F_SETLKW, &lock);
   
   if(rfcntl < 0) {
     perror("fcntl");
@@ -26,7 +27,7 @@ void main() {
   printf("Press enter to unlock");
   getchar();
   lock.l_type=F_UNLCK;
-  rfcntl=fcntl(fd, F_SETLK, &lock);
+  rfcntl=fcntl(fd, F_SETLKW, &lock);
   if(rfcntl < 0) {
     perror("fcntl");
     exit(1);

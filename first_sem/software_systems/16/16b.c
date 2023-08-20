@@ -16,7 +16,7 @@ void main() {
   lock.l_whence = SEEK_SET;
   lock.l_start = 0;
   lock.l_len = 0;
-  if (fcntl(fd, F_SETLK, &lock) < 0) {
+  if (fcntl(fd, F_SETLKW, &lock) < 0) {
     perror("fcntl");
     exit(1);
   }
@@ -25,7 +25,7 @@ void main() {
   printf("Press return to unlock");
   getchar();
   lock.l_type = F_UNLCK;
-  if (fcntl(fd, F_SETLK, &lock) < 0) {
+  if (fcntl(fd, F_SETLKW, &lock) < 0) {
     perror("fcntl");
     exit(1);
   }
