@@ -73,15 +73,17 @@ void main() {
 void read_lock(int lock_r) {
     int fd=open("file18.txt", O_RDONLY);
     struct student std;
-    lseek(fd, ( lock_r - 1) * sizeof(struct student), SEEK_CUR);
+    lseek(fd, (lock_r - 1) * sizeof(struct student), SEEK_CUR);
     read(fd, &std, sizeof(struct student));
     printf("Roll No: %d \nMarks : %d \n", std.roll_no, std.marks);
+    close(fd);
+    fd=open("file18.txt", O_RDWR);
+    if(fd < 0) perror("file");
     struct flock lock;
     lock.l_type=F_RDLCK;
     lock.l_whence = SEEK_SET;
     lock.l_start =  ( lock_r - 1 ) * sizeof(struct student);
     lock.l_len = sizeof(struct student);
-    lock.l_pid = getpid();
     printf("Waiting to acquire lock on record %d \n", std.roll_no);
     fcntl(fd, F_SETLKW, &lock);
     printf("Acquired lock on record %d \n", std.roll_no);
@@ -95,19 +97,24 @@ void read_lock(int lock_r) {
 
 void write_lock(int lock_r) {
     int fd=open("file18.txt", O_RDONLY);
+    if(fd < 0) perror("file");
     struct student std;
     lseek(fd, ( lock_r  - 1) * sizeof(struct student), SEEK_CUR);
     read(fd, &std, sizeof(struct student));
     printf("Roll No: %d \nMarks : %d \n", std.roll_no, std.marks);
+    close(fd);
+    fd=open("file18.txt", O_RDWR);
+    if(fd < 0) perror("file");
     struct flock lock;
+    lseek(fd, ( lock_r  - 1) * sizeof(struct student), SEEK_CUR);
     lock.l_type=F_RDLCK;
-    lock.l_whence = SEEK_SET;
-    lock.l_start =  ( lock_r - 1) * sizeof(struct student);
+    lock.l_whence=SEEK_SET;
+    lock.l_start=(lock_r - 1) * sizeof(struct student);
     lock.l_len = sizeof(struct student);
-    lock.l_pid = getpid();
     printf("Waiting to acquire lock on record %d \n", std.roll_no);
-    fcntl(fd, F_SETLKW, &lock);
     lock.l_type=F_WRLCK;
+    int r=fcntl(fd, F_SETLKW, &lock);
+    if(r < 0) perror("lock");
     printf("Acquired lock on record %d \n", std.roll_no);
     printf("You selected to write on this record. \nEnter new marks: ");
     int marks;
@@ -119,6 +126,6 @@ void write_lock(int lock_r) {
     getchar();
     getchar();
     lock.l_type = F_UNLCK;
-    int r_fc=fcntl(fd, F_SETLKW, &lock);
+    fcntl(fd, F_SETLKW, &lock);
     printf("Exited critical section...\n");
 }
