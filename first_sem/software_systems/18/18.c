@@ -77,6 +77,7 @@ void read_lock(int lock_r) {
     read(fd, &std, sizeof(struct student));
     printf("Roll No: %d \nMarks : %d \n", std.roll_no, std.marks);
     struct flock lock;
+    lock.l_type=F_RDLCK;
     lock.l_whence = SEEK_SET;
     lock.l_start =  ( lock_r - 1 ) * sizeof(struct student);
     lock.l_len = sizeof(struct student);
@@ -99,12 +100,14 @@ void write_lock(int lock_r) {
     read(fd, &std, sizeof(struct student));
     printf("Roll No: %d \nMarks : %d \n", std.roll_no, std.marks);
     struct flock lock;
+    lock.l_type=F_RDLCK;
     lock.l_whence = SEEK_SET;
     lock.l_start =  ( lock_r - 1) * sizeof(struct student);
     lock.l_len = sizeof(struct student);
     lock.l_pid = getpid();
     printf("Waiting to acquire lock on record %d \n", std.roll_no);
     fcntl(fd, F_SETLKW, &lock);
+    lock.l_type=F_WRLCK;
     printf("Acquired lock on record %d \n", std.roll_no);
     printf("You selected to write on this record. \nEnter new marks: ");
     int marks;
