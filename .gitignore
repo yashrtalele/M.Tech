@@ -6,3 +6,6 @@
 
 #ignore output.txt
 **/output.txt
+
+#ignore vscode
+.vscode/
