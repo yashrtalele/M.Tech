@@ -1,3 +1,13 @@
+/*
+============================================================================
+Name : 4.c
+Author : Yash Talele
+Description : Write a program to open an existing file with read write mode. 
+              Try O_EXCL flag also.
+Date: 19 August, 2023
+============================================================================
+*/
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
 #include<stdio.h>

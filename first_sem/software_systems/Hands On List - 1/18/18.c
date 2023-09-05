@@ -1,3 +1,17 @@
+/*
+============================================================================
+Name : 18.c
+Author : Yash Talele
+Description : Write a program to perform Record locking.
+            a. Implement write lock
+            b. Implement read lock
+            Create three records in a file. Whenever you access a 
+            particular record, first lock it then modify/access to avoid 
+            race condition.
+Date: 25 August, 2023
+============================================================================
+*/
+
 #include<stdio.h>
 #include<fcntl.h>
 #include<unistd.h>

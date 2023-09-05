@@ -1,3 +1,13 @@
+/*
+============================================================================
+Name : 16b.c
+Author : Yash Talele
+Description : Write a program to perform mandatory locking.
+              b. Implement read lock
+Date: 20 August, 2023
+============================================================================
+*/
+
 #include<stdio.h>
 #include<fcntl.h>
 #include<unistd.h>

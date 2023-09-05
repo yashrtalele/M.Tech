@@ -1,3 +1,14 @@
+/*
+=============================================================================
+Name : 8.c
+Author : Yash Talele
+Description : Write a program to open a file in read only mode, read line by 
+              line and display each line as it is read. Close the file when 
+              end of file is reached.
+Date: 20 August, 2023
+=============================================================================
+*/
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
 
