@@ -2,6 +2,7 @@
 ============================================================================
 Name : 16a.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to perform mandatory locking.
               a. Implement write lock
 Date: 20 August, 2023

@@ -2,6 +2,7 @@
 ============================================================================
 Name : 26b.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to execute an executable program.
               b. pass some input to an executable program. 
               (for example execute an executable of $./a.out name)

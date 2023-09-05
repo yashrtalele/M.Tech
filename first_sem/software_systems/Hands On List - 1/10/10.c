@@ -2,6 +2,7 @@
 ============================================================================
 Name : 10.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to open a file with read write mode, write 
               10 bytes, move the file pointer by 10 bytes (use lseek) and 
               write again 10 bytes. 

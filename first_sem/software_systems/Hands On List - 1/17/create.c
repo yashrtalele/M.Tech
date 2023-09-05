@@ -1,7 +1,8 @@
 /*
 ============================================================================
-Name : 17a.c
+Name : create.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to simulate online ticket reservation. 
               Implement write lock Write a program to open a file, 
               store a ticket number and exit. Write a separate program, to

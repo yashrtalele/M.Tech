@@ -2,6 +2,7 @@
 ============================================================================
 Name : 22.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program, open a file, call fork, and then write to the
               file by both the child as well as the parent processes. 
               Check output of the file.

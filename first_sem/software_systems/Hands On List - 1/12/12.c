@@ -2,6 +2,7 @@
 =================================================================================
 Name : 12.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to find out the opening mode of a file. Use fcntl.
 Date: 20 August, 2023
 =================================================================================

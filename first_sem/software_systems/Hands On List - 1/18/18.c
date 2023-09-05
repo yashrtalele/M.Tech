@@ -2,6 +2,7 @@
 ============================================================================
 Name : 18.c
 Author : Yash Talele
+Roll No. : MT2023186
 Description : Write a program to perform Record locking.
             a. Implement write lock
             b. Implement read lock
