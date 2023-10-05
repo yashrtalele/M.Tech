@@ -21,7 +21,7 @@ void main() {
     exit(-1);
   } else if(pid > 0) {
     printf("Parent process enters and sleeps for 5s\n");
-    sleep(5);
+    sleep(300);
     printf("Parent process is awake\nZombie process is created\n");
   } else if(pid == 0) {
     printf("Child process running\n");

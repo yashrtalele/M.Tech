@@ -22,7 +22,7 @@ void main(int argc, char* argv[]) {
     perror("Program");
     exit(0);
   }
-  int file2=open(argv[2], O_WRONLY | O_EXCL | O_CREAT, 0666);
+  int file2=open(argv[2], O_WRONLY | O_EXCL | O_CREAT, 0777);
   if(file2 < 0) {
     printf("Error %d", errno);
     perror("Program");
