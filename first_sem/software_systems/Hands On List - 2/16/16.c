@@ -22,7 +22,6 @@ int main() {
     pipe(r);
     pid_t pid = fork();
     if (!pid) {
-        //child
         close(p[1]);
         close(r[0]);
         char buffer[1024];
@@ -30,7 +29,6 @@ int main() {
         if (n > 0) {
             printf("Child received: %s\n", buffer);
         }
-// ------------------------------------------------------------------------
         buffer[0]='\0';
         printf("Enter a message for the parent: ");
         fgets(buffer, sizeof(buffer), stdin);
@@ -39,23 +37,17 @@ int main() {
         close(r[1]);
         exit(EXIT_SUCCESS);
     } else {
-        //parent
         close(p[0]);
         close(r[1]);
         char buffer[1024];
         printf("Enter a message for the child: ");
         fgets(buffer, sizeof(buffer), stdin);
         int n = write(p[1], buffer, strlen(buffer));
-        // if (n > 0) {
-        //     printf("Parent sent: %s\n", buffer);
-        // }
-// ------------------------------------------------------------------------
         buffer[0]='\0';
         n=read(r[0], buffer, sizeof(buffer));
         if (n > 0) {
             printf("Parent received: %s\n", buffer);
         }
-
         close(p[1]);
         wait(NULL);
     }
