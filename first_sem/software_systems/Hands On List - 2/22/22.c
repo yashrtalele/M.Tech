@@ -21,10 +21,6 @@ void main(void) {
         exit(EXIT_FAILURE);
     } else if (retval) {
         printf("Received data within 10 seconds\n");
-        int fd = open("pipe", O_RDWR);
-        char *buf = "Hello";
-        write(fd, buf, 6);
-        read(fd, buf, 6);
     } else {
         printf("No data received within 10 seconds\n");
         exit(EXIT_SUCCESS);
