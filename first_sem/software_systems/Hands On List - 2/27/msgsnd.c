@@ -4,7 +4,7 @@
 #include<string.h>
 #define MAX 10 
 
-struct msg_buffer {
+struct mbuffer {
     long mtype;
     char mtext[100];
 } message;
