@@ -12,8 +12,8 @@ void main() {
     serv.sin_addr.s_addr = INADDR_ANY;
     serv.sin_port = htons(PORT);
     connect(sd, (struct sockaddr *)&serv, sizeof(serv));
-    char buf[1024];
-    write(sd, "Client", 6);
-    read(sd, buf, 3);
-    printf("%s\n", buf);
+    char buf[1024]={0};
+    send(sd, "Hello, This is Client!\n", 24, 0);
+    recv(sd, buf, sizeof(buf), 0);
+    printf("%s", buf);
 }

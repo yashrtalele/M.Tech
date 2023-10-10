@@ -12,26 +12,26 @@ void *Thread(void *sd) {
     char buffer[1024];
     read(nsd, buffer, sizeof(buffer));
     printf("%s\n", buffer);
-    char *Send = "Hi";
-    write(nsd, Send, strlen(Send));
+    char *msg = "Hi";
+    write(nsd, msg, strlen(msg));
     printf("Client Acknowledged\n");
 }
 
 void main() {
-    struct sockaddr_in address;
+    struct sockaddr_in socket_address;
     int opt = 1;
-    int len = sizeof(address);
+    int len = sizeof(socket_address);
     char buffer[1024];
     int sd = socket(AF_INET, SOCK_STREAM, 0);
-    setsockopt(sd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt));
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
-    bind(sd, (struct sockaddr *)&address, sizeof(address));
+    socket_address.sin_family = AF_INET;
+    socket_address.sin_addr.s_addr = INADDR_ANY;
+    socket_address.sin_port = htons(PORT);
+    bind(sd, (struct sockaddr *)&socket_address, sizeof(socket_address));
     listen(sd, 1);
     pthread_t clients;
     while (1) {
-        int nsd = accept(sd, (struct sockaddr *)&address, (socklen_t *)&len);
+        int nsd = accept(sd, (struct sockaddr *)&socket_address, (socklen_t *)&len);
         pthread_create(&clients, NULL, Thread, (void *)&nsd);
+        exit(EXIT_SUCCESS);
     }
 }
