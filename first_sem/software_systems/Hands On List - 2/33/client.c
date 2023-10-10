@@ -4,7 +4,7 @@
 #include<sys/socket.h>
 #include<netinet/in.h>
 
-void main() {
+void main(void) {
     int client_socket;
     struct sockaddr_in server_address;
     char message[1024];
