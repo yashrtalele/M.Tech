@@ -1,19 +1,29 @@
 // Write two programs so that both can communicate by FIFO -Use two way communications.
 #include<stdio.h>
+#include<fcntl.h>
+#include<string.h>
 #include<stdlib.h>
+#include<unistd.h>
 #include<sys/types.h>
 #include<sys/stat.h>
-#include<fcntl.h>
-#include<unistd.h>
 
 void main(void) {
-    int fd1 = open("fifo1", O_RDWR | O_CREAT, 0666);
-    int fd2 = open("fifo2", O_RDWR | O_CREAT, 0666);
-    char buffer_write[1024] ;
-    char buffer_read[1024] ;
-    printf("Enter message : ");
-    scanf("%s", buffer_write);
-    write(fd1, buffer_write, 1024);
-    read(fd2, buffer_read, 1024);
-    printf("%s\n", buffer_read);
+    int fd1, fd2;
+    fd1 = open("myfifo1", O_RDWR);
+    fd2 = open("myfifo2", O_RDWR);
+    while (1) {
+        char message[1024];
+        printf("Enter message for sender : ");
+        fgets(message, sizeof(message), stdin);
+        if(strcmp(message, "exit")) {
+            write(fd2, message, sizeof(message));
+            char buf[1024];
+            read(fd1, buf, sizeof(buf));
+            printf("Message from server : %s\n", buf);
+        }
+        else {
+            close(fd1);
+            close(fd2);
+        }
+    }
 }
