@@ -1,14 +1,18 @@
 #include<stdio.h>
+#include<fcntl.h>
+#include<string.h>
 #include<stdlib.h>
+#include<unistd.h>
 #include<sys/types.h>
 #include<sys/stat.h>
-#include<fcntl.h>
-#include<unistd.h>
+#define FIFO_PATH "fifo"
 
 void main(void) {
-    int fd = open("fifo", O_WRONLY | O_CREAT, 0666);
-    char buffer[100];
-    printf("Enter a message for the parent: ");
-    fgets(buffer, sizeof(buffer), stdin);
-    write(fd, buffer, sizeof(buffer));
+    int fd;
+    const char* path="/tmp/fifo";
+    char message[128];
+    fd = open(path, O_RDONLY);
+    read(fd, message, sizeof(message));
+    printf("Received: %s", message);
+    close(fd);
 }

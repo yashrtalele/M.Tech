@@ -1,15 +1,26 @@
 // Write two programs so that both can communicate by FIFO -Use one way communication.
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<sys/types.h>
-#include<sys/stat.h>
 #include<fcntl.h>
+#include<string.h>
 #include<unistd.h>
+#include<stdlib.h>
+#include<sys/stat.h>
+#include<sys/types.h>
 
 void main(void) {
-    int fd = open("fifo", O_RDONLY | O_CREAT, 0666);
-    char buffer[100];
-    int size = read(fd, buffer, 100);
-    printf("%s\n", buffer);
+    char message[128];
+    const char* path="/tmp/fifo";
+    mode_t mode=0666;
+    mkfifo(path, mode);
+    int fd = open(path, O_WRONLY);
+    if(fd < 0) {
+        perror("open");
+        close(fd);
+        exit(EXIT_FAILURE);
+    }
+    printf("Enter a message: ");
+    fgets(message, sizeof(message), stdin);
+    write(fd, message, strlen(message) + 1);
+    close(fd);
 }
