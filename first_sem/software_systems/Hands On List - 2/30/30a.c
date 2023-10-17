@@ -1,11 +1,16 @@
 /*
-Write a program to create a shared memory.
-a. write some data to the shared memory
-b. attach with O_RDONLY and check whether you are able to overwrite.
-c. detach the shared memory
+============================================================================
+Name : 30a.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to create a shared memory.    
+a. write some data to the shared memory    
+b. attach with O_RDONLY and check whether you are able to overwrite.    
+c. detach the shared memory    
 d. remove the shared memory
+Date: 6th Oct, 2023.
+============================================================================
 */
-
 #include<stdio.h>
 #include<unistd.h>
 #include<sys/shm.h>

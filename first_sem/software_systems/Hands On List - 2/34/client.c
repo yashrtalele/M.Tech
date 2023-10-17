@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : client.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to create a concurrent server.    a. use fork    b. use pthread_create
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<sys/types.h>

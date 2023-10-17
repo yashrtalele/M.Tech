@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : client.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to communicate between two machines using socket.
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>

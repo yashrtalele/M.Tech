@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : 20b.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description :  Write two programs so that both can communicate by FIFO -Use one way communications. 
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<fcntl.h>
 #include<string.h>

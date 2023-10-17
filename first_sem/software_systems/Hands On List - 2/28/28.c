@@ -1,5 +1,12 @@
-// Write a program to change the exiting message queue permission. (use msqid_ds structure)
-
+/*
+============================================================================
+Name : 28.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to change the exiting message queue permission. (use msqid_ds structure)
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<sys/ipc.h>
 #include<sys/msg.h>

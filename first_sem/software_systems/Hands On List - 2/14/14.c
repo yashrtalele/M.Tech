@@ -4,8 +4,8 @@ Name : 14.c
 Author : Yash Talele
 Roll No. : MT2023186
 Description : Write a simple program to create a pipe, write to the pipe, 
-              read from pipe and display on the monitor.
-Date: 19 August, 2023
+            read from pipe and display on the monitor.
+Date: 5th October, 2023
 ============================================================================
 */
 

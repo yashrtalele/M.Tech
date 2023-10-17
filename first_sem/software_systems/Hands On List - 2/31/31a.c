@@ -1,7 +1,12 @@
-/* 
-Write a program to create a semaphore and initialize value to the semaphore.
-a. create a binary semaphore
-b. create a counting semaphore
+/*
+============================================================================
+Name : 31a.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to create a semaphore and initialize value to the semaphore.    
+a. create a binary semaphore    b. create a counting semaphore
+Date: 6th Oct, 2023.
+============================================================================
 */
 
 #include <stdio.h>

@@ -4,8 +4,8 @@ Name : 16.c
 Author : Yash Talele
 Roll No. : MT2023186
 Description : Write a program to send and receive data from parent to child 
-              vice versa. Use two way communication
-Date: 19 August, 2023
+            vice versa. Use two way communication
+Date: 5th October, 2023
 ============================================================================
 */
 

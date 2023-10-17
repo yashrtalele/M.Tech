@@ -4,8 +4,8 @@ Name : 18.c
 Author : Yash Talele
 Roll No. : MT2023186
 Description : Write a program to find out total number of directories on the pwd.
-              execute ls -l | grep ^d | wc ? Use only dup2
-Date: 19 August, 2023
+            execute ls -l | grep ^d | wc ? Use only dup2
+Date: 5th October, 2023
 =====================================================================================
 */
 

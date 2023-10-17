@@ -4,7 +4,7 @@ Name : 15.c
 Author : Yash Talele
 Roll No. : MT2023186
 Description : Write a simple program to send some data from parent to the child process
-Date: 19 August, 2023
+Date: 5th October, 2023
 ========================================================================================
 */
 

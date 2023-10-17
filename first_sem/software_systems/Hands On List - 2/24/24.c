@@ -1,5 +1,12 @@
-// Write a program to create a message queue and print the key and message queue id
-
+/*
+============================================================================
+Name : 24.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to create a message queue and print the key and message queue id.
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<sys/ipc.h>

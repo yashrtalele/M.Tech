@@ -1,5 +1,12 @@
-// Write a program to send messages to the message queue. Check $ipcs -q
-
+/*
+============================================================================
+Name : 26.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to send messages to the message queue. Check $ipcs -q 
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<sys/ipc.h>

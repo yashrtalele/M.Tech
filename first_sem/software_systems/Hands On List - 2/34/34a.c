@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : 34a.c
+Author : Yash Talele
+Roll No. : MT2023186
+Description : Write a program to create a concurrent server.    a. use fork    b. use pthread_create
+Date: 6th Oct, 2023.
+============================================================================
+*/
 #include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
